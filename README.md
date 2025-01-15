@@ -38,13 +38,21 @@ This project is a banking application consisting of a Spring Boot backend. The a
 The project uses a MySQL database. Configure the database in the `application.properties` file as follows:
 
 ```properties
+# MySQL Database Configuration
 spring.datasource.url=jdbc:mysql://localhost:3306/mslab
 spring.datasource.username=root
-spring.datasource.password=yourpassword
-spring.jpa.hibernate.ddl-auto=create
+spring.datasource.password=
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# Hibernate and JPA Settings
+spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
-spring.sql.init.mode=always
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+
+# Spring Security Default Credentials
+spring.security.user.name=admin
+spring.security.user.password=admin123
+
 ```
 
 ### **Schema and Initial Data**
