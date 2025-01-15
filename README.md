@@ -147,7 +147,6 @@ spring.security.user.password=admin123
 ### Prerequisites
 - Java Development Kit (JDK 17 or later)
 - MySQL Server
-- Node.js and npm (for frontend)
 
 ### Steps
 1. **Clone the Repository**
@@ -165,7 +164,6 @@ spring.security.user.password=admin123
       ```
 
 3. **Access the Application**
-    - Frontend: `http://localhost:3000`
     - Backend: `http://localhost:8080`
 
 ---
