@@ -8,10 +8,7 @@ import com.example.mslab.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class TransactionService {
@@ -21,6 +18,13 @@ public class TransactionService {
 
     @Autowired
     private UserRepository userRepository;
+
+    public List<Transaction> getAllTransactions() {
+        return transactionRepository.findAll(); // Correct return type is List<Transaction>
+    }
+    public Optional<Transaction> getTransactionById(Long id) {
+        return transactionRepository.findById(id);
+    }
 
     public Transaction addTransaction(Long userId, Transaction transaction) {
         User user = userRepository.findById(userId)

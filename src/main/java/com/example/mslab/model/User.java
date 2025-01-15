@@ -13,7 +13,7 @@ public class User {
     private String fullname;
     private String type;
     private String number;
-    private double balance;
+    private Double balance;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Transaction> transactions;
 

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/transactions")
@@ -17,7 +18,16 @@ public class TransactionController {
 
     @Autowired
     private TransactionService transactionService;
+    @GetMapping
+    public List<Transaction> getAllTransactions() {
+        return transactionService.getAllTransactions(); // Returns a list of transactions
+    }
 
+
+    @GetMapping("/transaction-id/{id}")
+    public Optional<Transaction> getTransactionById(@PathVariable("id") Long id) {
+        return transactionService.getTransactionById(id);
+    }
     @PostMapping("/{userId}")
     public ResponseEntity<Transaction> addTransaction(@PathVariable Long userId, @RequestBody Transaction transaction) {
         Transaction newTransaction = transactionService.addTransaction(userId, transaction);

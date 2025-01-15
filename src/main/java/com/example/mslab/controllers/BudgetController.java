@@ -15,6 +15,11 @@ public class BudgetController {
     @Autowired
     private BudgetService budgetService;
 
+
+    @GetMapping
+    public List<Budget> getAllBudgets() {
+        return budgetService.getAllBudgets();
+    }
     @PostMapping("/{userId}")
     public ResponseEntity<Budget> addBudget(@PathVariable Long userId, @RequestBody Budget budget) {
         Budget newBudget = budgetService.addBudget(userId, budget);

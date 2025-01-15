@@ -19,6 +19,10 @@ public class BudgetService {
     @Autowired
     private UserRepository userRepository;
 
+
+    public List<Budget> getAllBudgets() {
+        return budgetRepository.findAll();
+    }
     public Budget addBudget(Long userId, Budget budget) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException("User not found with ID: " + userId));
